@@ -1,1 +1,177 @@
-# Pagina
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Xiomara me quieres?</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #000;
+    color: #fff; /* Letras blancas */
+  }
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: twinkle 3s infinite;
+  }
+  @keyframes twinkle {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  .container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  .heart {
+    width: 100px;
+    height: 90px;
+    position: relative;
+    display: inline-block;
+    animation: beat 1s infinite;
+    transform-origin: center;
+    z-index: 1;
+  }
+  .heart:before,
+  .heart:after {
+    content: "";
+    width: 50px;
+    height: 80px;
+    background-color: red;
+    border-radius: 50px 50px 0 0;
+    position: absolute;
+    top: 0;
+  }
+  .heart:before {
+    left: 50%;
+    transform: translateX(-50%) rotate(-45deg);
+    transform-origin: 0 100%;
+  }
+  .heart:after {
+    left: 0;
+    transform: translateX(-50%) rotate(45deg);
+    transform-origin: 100% 100%;
+  }
+  .initial {
+    position: absolute;
+    top: 5px;
+    left: 25px;
+    font-size: 20px;
+    color: black;
+    z-index: 2;
+  }
+  @keyframes beat {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  .question {
+    margin-top: 30px;
+    font-size: 18px;
+  }
+  .btn {
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 3;
+  }
+  .btn-green {
+    background-color: green;
+    color: white;
+  }
+  .btn-red {
+    background-color: red;
+    color: white;
+  }
+  /* Animación de explosión de colores */
+  @keyframes explosion {
+    0% { color: red; }
+    25% { color: blue; }
+    50% { color: yellow; }
+    75% { color: green; }
+    100% { color: transparent; }
+  }
+  /* Aplicar la animación al texto "Te Amo Tefy" */
+  .love-message {
+    font-size: 24px;
+    animation: explosion 2s ease-out;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <!-- Agregando estrellas -->
+  <div class="star" style="top: 30%; left: 20%;"></div>
+  <div class="star" style="top: 70%; left: 80%;"></div>
+  <div class="star" style="top: 50%; left: 50%;"></div>
+  <div class="star" style="top: 10%; left: 90%;"></div>
+  <div class="star" style="top: 60%; left: 10%;"></div>
+  <div class="star" style="top: 20%; left: 30%;"></div>
+  <div class="star" style="top: 80%; left: 70%;"></div>
+  <div class="star" style="top: 40%; left: 90%;"></div>
+  <div class="star" style="top: 25%; left: 15%;"></div>
+  <div class="star" style="top: 65%; left: 85%;"></div>
+  <div class="star" style="top: 45%; left: 55%;"></div>
+  <div class="star" style="top: 5%; left: 95%;"></div>
+  <div class="star" style="top: 70%; left: 15%;"></div>
+  <div class="star" style="top: 15%; left: 85%;"></div>
+  <div class="star" style="top: 35%; left: 25%;"></div>
+  <div class="star" style="top: 90%; left: 65%;"></div>
+  <div class="star" style="top: 50%; left: 95%;"></div>
+  <div class="star" style="top: 20%; left: 5%;"></div>
+  <div class="star" style="top: 75%; left: 45%;"></div>
+  <div class="star" style="top: 10%; left: 75%;"></div>
+  <!-- Agrega más estrellas si lo deseas -->
+  
+  <!-- Corazón, letra inicial, pregunta y botones -->
+  <div class="heart"></div>
+  <div class="initial">X</div>
+  <div class="question">¿Xiomara me quieres?</div>
+  <button class="btn btn-green" id="greenBtn" onclick="declareLove()">Sí, te quiero</button>
+  <button class="btn btn-red" onclick="makeGreenBigger()">No, no te quiero</button>
+</div>
+
+<script>
+  let greenButtonSize = 100; // Tamaño inicial del botón verde
+
+  function makeGreenBigger() {
+    // Incrementar el tamaño del botón verde
+    greenButtonSize += 10;
+    document.getElementById('greenBtn').style.width = greenButtonSize + 'px';
+    document.getElementById('greenBtn').style.height = greenButtonSize + 'px';
+  }
+
+  function declareLove() {
+    // Mostrar mensaje "Te Amo Tefy" y ocultar el resto de elementos
+    document.querySelector('.container').innerHTML = '<div class="love-message">Te Amo Tefy</div>';
+  }
+</script>
+
+</body>
+</html>
